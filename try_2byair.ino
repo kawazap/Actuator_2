@@ -60,8 +60,8 @@ void setup()
   //pinMode(flag, INPUT);
   pinMode(Airball, OUTPUT);
   pinMode(Airrale, OUTPUT);
-  pinMode(Airball, INPUT);
-  pinMode(Airrale, INPUT);
+  //pinMode(Airball, INPUT);
+  //pinMode(Airrale, INPUT);
 }
 
 void loop(){

@@ -1,5 +1,5 @@
 /*
- 　_____________|Airball  | Airrale |
+ 　_____________|Airball1,2  | Airrale |
  初期位置　　　　|low　　  | low     |
  tryゾーンついた |low      |  high   |
  ボールおいたよ  | high    |  high   |
@@ -62,7 +62,8 @@ void setup()
   nh.advertise(ACtry);//うまく機能せず
  
   //pinMode(flag, INPUT);
-  pinMode(Airball, OUTPUT);
+  pinMode(Airball1,OUTPUT);
+  pinMode(Airball2, OUTPUT);
   pinMode(Airrale, OUTPUT);
   //pinMode(Airball, INPUT);
   //pinMode(Airrale, INPUT);
@@ -73,7 +74,7 @@ void loop(){
 //tryしたことの判定
 bool leave = false;
   static uint32_t pre_time;
-  if(digitalRead(Airball) ==HIGH && digitalRead(Airrale) ==HIGH){
+  if(digitalRead(Airball1) ==HIGH && digitalRead(Airrale) ==HIGH){
     leave = true;
   }else{
     leave = false;

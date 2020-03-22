@@ -11,8 +11,9 @@
 #include <std_msgs/Bool.h>
 
 //PWM
-const int Airball = 5;
-const int Airrale = 4;
+const int Airball1 = 40;
+const int Airball2 = 41;
+const int Airrale =  42;
 //const int flag = 20;
 
 //tryしたことの判定
@@ -29,17 +30,20 @@ ros::Publisher CHpub("ACmode", &chat);//Actuatorでのmode(start,ballcatch,try,b
 
 void  Actuator(const std_msgs::Int32& try_msg){
     if( try_msg.data == 0){//初期位置
-       digitalWrite(Airball, LOW);
+       digitalWrite(Airball1, LOW);
+       digitalWrite(Airball2, LOW);
        digitalWrite(Airrale,LOW);
        //digitalWrite(flag,LOW);
         chat.data = "start";
-    }else if( try_msg.data == 1){//tryゾーン到着!!
-       digitalWrite(Airball, LOW);
+    }else if( try_msg.data == 1){//tryゾーン到着!
+       digitalWrite(Airball1, LOW);
+       digitalWrite(Airball2, LOW);
        digitalWrite(Airrale,HIGH);
        //digitalWrite(flag,LOW);
         chat.data = "balecatch";
     }else if( try_msg.data == 2){//ボールを置く
-       digitalWrite(Airball, HIGH);
+       digitalWrite(Airball1, HIGH);
+       digitalWrite(Airball2, HIGH);
        digitalWrite(Airrale,HIGH);
       // digitalWrite(flag,HIGH);
         chat.data = "try";
